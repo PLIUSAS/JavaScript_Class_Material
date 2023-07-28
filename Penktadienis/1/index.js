@@ -18,7 +18,8 @@ console.log(max);
 // Contains at least one digit
 // Contains at least one special character (e.g., !, @, #, $, etc.)
 const pass = "slapt@azOdis123";
-const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/;
+const regex =
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/;
 const res = regex.test(pass);
 console.log(res);
 
