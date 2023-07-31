@@ -2,25 +2,26 @@
 //     alert(name);
 //   }
 //   alertName('Laurynas');
+
   function generateRandomNumber() {
     return Math.floor(Math.random() * 5) + 1;
   }
-  generateRandomNumber();
-  3.
+  console.log(generateRandomNumber());
   
+  // 3.
   function getNameAndSurnameLength(name, surname) {
     return name.length + surname.length;
   }
-  getNameAndSurnameLength('John', 'Snow');
-  4.
+  console.log(getNameAndSurnameLength('John', 'Snow'));
   
+  // 4.
   function getLetterByIndex(index) {
     const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     return alphabet[index];
   }
-  getLetterByIndex(0);
-  5.
-  
+  console.log(getLetterByIndex(0));
+
+  // 5.
   function calculate(n1, n2, operator) {
     switch(operator){
       case 'sum':
@@ -33,9 +34,9 @@
         return n1 * n2;
     }
   }
-  calculate(1, 2, 'sum');
-  6.
-  
+  console.log(calculate(5, 5, "multi"));
+
+  // 6.
   function generateRandomNumber() {
     return Math.floor(Math.random() * 10 + 1);
   }
@@ -44,8 +45,8 @@
     return Math.pow(number, 2);
   }
   
-//   squareNum(generateRandomNumber(5));
-  
+  console.log(generateRandomNumber(0));
+  console.log(squareNumber(5));
 
 
 
