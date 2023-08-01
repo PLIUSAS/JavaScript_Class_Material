@@ -99,3 +99,42 @@
 // });
 
 // document.body.addEventListener('mousemove', () => document.getElementById('output').innerText = 'Kiek galima neklausyti?!');
+
+
+
+function timelaps(hour) {
+  if (hour >0 && hour <=12) {
+    console.log("Labas Rytas");
+  } else if (hour >12 && hour <=18) {
+    console.log("Laba Diena");
+  } else if (hour >18 && hour <=24) {
+    console.log("Labas Vakaras");
+  } else {
+    console.log("Laikas neatitinka realybes");
+  }
+}
+timelaps(12)
+timelaps(15)
+timelaps(20)
+timelaps(25)
+
+function pressed() {
+  var text = document.getElementById("inp").value;
+  if (text === "red") {
+    document.getElementById("header").style.color = "red";
+    document.getElementById("header").style.background = "white";
+  } else if (text === "green") {
+    document.getElementById("header").style.color = "green";
+    document.getElementById("header").style.background = "white";
+  } else if (text === "blue") {
+    document.getElementById("header").style.color = "blue";
+    document.getElementById("header").style.background = "white";
+  } else if (text === "white") {
+    document.getElementById("header").style.color = "white";
+    document.getElementById("header").style.background = "black";
+  }else {
+    document.getElementById("header").style.color = "black";
+    document.getElementById("header").style.background = "white";
+  }
+  
+}
