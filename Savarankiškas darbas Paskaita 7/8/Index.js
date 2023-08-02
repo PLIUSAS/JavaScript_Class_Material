@@ -102,3 +102,15 @@
 // }
 
 // document.querySelector("form").addEventListener("submit", drawTriangle);
+
+// 7 Užduotis
+
+// 8 Užduotis
+
+// 9 Užduotis
+
+// 10 Užduotis
+
+// 11 Užduotis
+
+// 12 Užduotis
