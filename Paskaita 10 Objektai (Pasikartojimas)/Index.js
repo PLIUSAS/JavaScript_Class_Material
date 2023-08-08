@@ -34,12 +34,15 @@ const person2 = {
 };
 
 console.log(person2);
+console.log(person);
 
-// function augintinis() {
-//   this.name = "Marius";
-//   console.log(this);
-// }
-// augintinis();
+// Funkcija be ir su New parašymu
+
+function Augintinis(name) {
+  this.name = name;
+}
+const pukis = new Augintinis("pukis");
+console.log(pukis.name);
 
 const obj = {
   name: "Vytautas",
