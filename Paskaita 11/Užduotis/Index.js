@@ -4,8 +4,8 @@ document.body.style.background = "rgba(169, 243, 255, 0.5)";
 
 const main = document.createElement("main");
 main.style.background = "white";
-main.style.width = "25%";
-main.style.margin = "7rem auto";
+main.style.width = "40%";
+main.style.margin = "8rem auto";
 main.style.padding = "1rem";
 main.style.textAlign = "center";
 main.style.borderRadius = "1rem";
