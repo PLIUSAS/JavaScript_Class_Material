@@ -1,6 +1,6 @@
 document.body.style.background = "rgba(169, 243, 255, 0.5)";
 
-// Main block
+// Body dalis
 
 const main = document.createElement("main");
 main.style.background = "white";
@@ -11,7 +11,7 @@ main.style.textAlign = "center";
 main.style.borderRadius = "1rem";
 document.body.append(main);
 
-// Image
+// Nuotraukos pridėjimas
 const img = document.createElement("img");
 img.src =
   "https://archive.smashingconf.com/sf-2018/content/02-speakers/03-trent-walton/trent-walton.jpg";
@@ -26,14 +26,12 @@ img.style.marginTop = "-6.5rem";
 img.style.boxShadow = "0px 5px 15px rgba(0, 0, 0, 0.8)";
 main.append(img);
 
-// Text
+// Textas
 
 const name = document.createElement("h1");
 name.textContent = "Trent Walton";
 name.style.marginTop = "0";
 main.append(name);
-
-// Text
 
 const p = document.createElement("p");
 p.textContent = "Founder & 1/3 of @paravelinc";
