@@ -66,13 +66,13 @@ const fn = (array) =>
   array
     .sort((a, b) => (a.name > b.name ? 1 : -1))
     .sort((a, b) => (a.age - b.age ? 1 : -1));
-console.log(
-  fn[
-    ({ name: "Alfredas", age: 25 },
-    { name: "Jonas", age: 25 },
-    { name: "Kasparas", age: 20 })
-  ]
-);
+// console.log(
+//   fn[
+//     ({ name: "Alfredas", age: 25 },
+//     { name: "Jonas", age: 25 },
+//     { name: "Kasparas", age: 20 })
+//   ]
+// );
 //     Parašykite funkciją, kuri paimtų array (susideda iš objektų su vardu ir amžium) bei grąžina array išrykiuotą pagal amžių ir jei amžius sutampa – vardus a>z tvarka.
 // Pvz.: fn([{name: „Alfredas“, age: 25}, {name: „Jonas“, age: 25}, {name: „Kasparas“, age: 20}]) -> [{name: „Kasparas“, age: 20}, {name: „Alfredas“, age: 25}, {name: „Jonas“, age: 25}]
 
@@ -90,4 +90,4 @@ const missingNumber = (array) =>
   array.find((x, i) => x + 1 !== array[i + 1]) + 1;
 console.log(missingNumber([1, 2, 4, 5]));
 // Sukurkite funkciją, kuri kaip parametrą gaus array su skaičiais. Funkcija turės grąžinti mažiausią trūkstamą skaičių iš array.
-// Pvz. Paduodu: ; Grąžina: 3
+// Pvz. Paduodu: [1, 2, 4, 5]; Grąžina: 3
