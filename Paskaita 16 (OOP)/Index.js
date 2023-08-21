@@ -51,7 +51,58 @@ const altoriuSesely = new Book("altoriu Sesely", 1990, 2, "kazkas");
 martynoMazvydo.addNewBooks(kvepalai);
 martynoMazvydo.addNewBooks(altoriuSesely);
 
-console.log(martynoMazvydo.findBookByTitle("kvepalai"));
 martynoMazvydo.removeBookById(1);
 
-console.log(martynoMazvydo);
+class Animal {
+  // Pirma klase (Animal)
+  constructor(name) {
+    this.name = name;
+  }
+  breathe() {
+    console.log("i am breathing");
+  }
+}
+class Mamal extends Animal {
+  // Pirma klase sujungta (extends) su antra klase (Mamal)
+  constructor(typeoOfDrink, name) {
+    super(name);
+    this.typeoOfDrink = typeoOfDrink;
+  }
+  drink() {
+    console.log("I am drinking milk");
+  }
+}
+
+const karve = new Mamal("Water", "Birute");
+karve.breathe();
+karve.drink();
+console.log(karve.typeoOfDrink);
+console.log(karve.name);
+
+// Užduotis 1-2 vienu metu sujungtai padaryti
+class Car {
+  constructor(brand, model, engine, price) {
+    this.brand = brand;
+    this.model = model;
+    this.engine = engine;
+    this.basePrice = price;
+    this.getPrice = function () {
+      let additionalPrice = 0;
+      if (this.engine === "Electric") {
+        additionalPrice = 10000;
+      } else if (this.engine === "diesel") {
+        additionalPrice = 5000;
+      }
+      return this.basePrice + additionalPrice;
+    };
+    this.TurnOn = function () {
+      alert("vrooom! ");
+    };
+  }
+}
+const bestCar = new Car("BMW", " M4 ", "diesel", 40000);
+bestCar.TurnOn();
+console.log(bestCar.getPrice());
+const fastesCar = new Car("Bugatti", " Chiron ", "Electric", 500000);
+fastesCar.TurnOn();
+console.log(fastesCar.getPrice());
