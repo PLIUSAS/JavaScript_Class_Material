@@ -1,30 +1,30 @@
-function Person(name, surname) {
-  this.name = name;
-  this.surname = surname;
-  this.addToTable = function () {
-    const nameColumn = document.createElement("td");
-    nameColumn.textContent = this.name;
-    const surnameColumn = document.createElement("td");
-    surnameColumn.textContent = this.surname;
-    const tr = document.createElement("tr");
-    tr.append(nameColumn, surnameColumn);
-    document.querySelector("table > tbody").append(tr);
-  };
-}
+// function Person(name, surname) {
+//   this.name = name;
+//   this.surname = surname;
+//   this.addToTable = function () {
+//     const nameColumn = document.createElement("td");
+//     nameColumn.textContent = this.name;
+//     const surnameColumn = document.createElement("td");
+//     surnameColumn.textContent = this.surname;
+//     const tr = document.createElement("tr");
+//     tr.append(nameColumn, surnameColumn);
+//     document.querySelector("table > tbody").append(tr);
+//   };
+// }
 
-const capitalize = (text) =>
-  text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+// const capitalize = (text) =>
+//   text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 
-document.querySelector("form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const fullname = document.getElementById("fullname").value;
-  const [name, surname] = fullname
-    .split(" ")
-    .map((namePart) => capitalize(namePart.trim()));
+// document.querySelector("form").addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const fullname = document.getElementById("fullname").value;
+//   const [name, surname] = fullname
+//     .split(" ")
+//     .map((namePart) => capitalize(namePart.trim()));
 
-  const person = new Person(name, surname);
-  person.addToTable();
-});
+//   const person = new Person(name, surname);
+//   person.addToTable();
+// });
 
 class Car {
   constructor(brand, model, mileage, price, image) {
@@ -42,11 +42,13 @@ class Car {
 
     const img = document.createElement("img");
     img.src = this.image;
-
-    const text = document.createElement("h6");
+    const text = document.createElement("h3");
     text.innerText = `${this.brand} ${this.model}`;
 
-    card.append(img, text);
+    const text1 = document.createElement("h6");
+    text1.innerText = ` ${this.mileage} km`;
+
+    card.append(img, text, text1);
     document.querySelector("div.wrapper").append(card);
   }
 }
@@ -65,5 +67,5 @@ document.querySelector("form").addEventListener("submit", (event) => {
 
 // Tai tikriausiai paprasčiausias būdas išfiltruoti dublikatus,
 // bet internete galite rasti ir daugiau įvairių variantų
-const removeDuplicates = (arr) => [...new Set(arr)];
-console.log(removeDuplicates([1, 3, 3, 5, 5, 5]));
+// const removeDuplicates = (arr) => [...new Set(arr)];
+// console.log(removeDuplicates([1, 3, 3, 5, 5, 5]));
