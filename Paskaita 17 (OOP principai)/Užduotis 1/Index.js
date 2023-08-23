@@ -69,3 +69,20 @@ document.querySelector("form").addEventListener("submit", (event) => {
 // bet internete galite rasti ir daugiau įvairių variantų
 // const removeDuplicates = (arr) => [...new Set(arr)];
 // console.log(removeDuplicates([1, 3, 3, 5, 5, 5]));
+
+// let baseSalary = 10000;
+// let overtime = 10;
+// let rate = 20;
+
+// function getWage(baseSalary, overtime, rate) {
+//   return baseSalary + overtime * rate;
+// }
+// let employeee = {
+//   baseSalary: 10000,
+//   overtime: 10,
+//   rate: 20,
+//   getWage: function () {
+//     return this.baseSalary + this.overtime * this.rate;
+//   },
+// };
+// employeee.getWage();
