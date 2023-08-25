@@ -14,7 +14,8 @@ const obj = JSON.parse(x);
 console.log(obj);
 
 localStorage.setItem("name", "Marius");
-console.log(localStorage.getItem("name"));
+console.log(localStorage.getItem("name", "Marius"));
 // localStorage.removeItem("name");
-
+//JSON.Stringify - Konvertuoja į stringa PVZ; Iš Array padaro stringa
+//JSON.parse - Parsina atgal į kažkokį objekta PVZ: Iš stringo padaro  Array
 // sessionStorage.removeItem("manoSessionStorage");
