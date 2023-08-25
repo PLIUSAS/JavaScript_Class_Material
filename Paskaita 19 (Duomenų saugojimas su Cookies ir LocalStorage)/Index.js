@@ -14,6 +14,7 @@ sessionStorage.setItem(
     labas: "labas",
   })
 );
+
 const x = sessionStorage.getItem("manoSessionStorage");
 const obj = JSON.parse(x);
 console.log(obj);
