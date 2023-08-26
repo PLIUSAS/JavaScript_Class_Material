@@ -64,7 +64,7 @@ function displayQuestion() {
   questionContainer.innerHTML = "";
   if (questionIndex < questions.length) {
     const timer = document.createElement("p");
-    timer.textContent = 5;
+    timer.textContent = 10;
     const questionPar = document.createElement("p");
     questionPar.textContent = questions[questionIndex].question;
     questionContainer.append(timer, questionPar);
