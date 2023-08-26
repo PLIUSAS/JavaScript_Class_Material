@@ -122,3 +122,7 @@ console.log(reg.test("+37061821229"));
 console.log("+37061821229asdfsadf+37021881229".replace(reg, "REPLACED"));
 
 displayQuestion();
+
+const button = document.CreateElement("button");
+button.innerHTML = "Sveikas";
+document.body.appendChild(button);
