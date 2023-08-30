@@ -20,7 +20,7 @@ const createSearchForm = () => {
   document.body.appendChild(searchBox);
 
   const searchButton = document.createElement("button");
-  searchButton.innerHTML = "Search for name or city";
+  searchButton.innerHTML = "Search for First Name or Last Name";
   searchButton.setAttribute("id", "searchButton");
 
   const form = document.createElement("form");
