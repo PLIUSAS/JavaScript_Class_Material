@@ -1,10 +1,31 @@
 let rows = [];
 
 function createTable() {
+  const form = document.createElement("form");
+  const searchInput = document.createElement("input");
+  searchInput.type = "search";
+  const submitButton = document.createElement("button");
+  submitButton.type = "submit";
+  submitButton.textContent = "Search";
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const search = searchInput.value.trim();
+    const filtered = rows.filter((row) =>
+      row.name.toLowerCase().includes(search.toLowerCase())
+    );
+    tbody.innerHTML = "";
+    filtered.forEach((row) => {
+      generateTableRow(row);
+    });
+  });
+
+  form.append(searchInput, submitButton);
+
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.id = "vipCheckbox";
-  checkbox.addEventListener("change", () => {
+  checkbox.addEventListener("change", (e) => {
     tbody.innerHTML = "";
     if (e.target.checked) {
       const vips = rows.filter((row) => row.vip);
@@ -17,6 +38,7 @@ function createTable() {
       });
     }
   });
+
   const label = document.createElement("label");
   label.textContent = "Filter VIP";
   label.setAttribute("for", "vipCheckbox");
@@ -41,7 +63,7 @@ function createTable() {
   tHead.append(tr);
   table.append(tHead, document.createElement("tbody"));
 
-  document.body.append(label, checkbox, table);
+  document.body.append(form, label, checkbox, table);
 }
 
 async function getRobots() {
