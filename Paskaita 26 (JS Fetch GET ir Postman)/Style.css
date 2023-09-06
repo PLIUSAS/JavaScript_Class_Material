@@ -4,15 +4,15 @@ body {
 .container {
     margin: 4rem auto;
     text-align: center;
-    border: 1px solid black;
     border-radius: 30px;
     display: grid;
-    grid-template-columns: 200px 200px 200px 100px;
-    width: 700px;
+    grid-template-columns: 300px 200px 200px 200px;
+    width: 900px;
     height: 500px;
     background-color: rgba(2, 193, 252);
 }
 .blue-container {
+    color: white;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     display: flex;
@@ -24,25 +24,51 @@ body {
     background-color: rgba(2, 193, 252);
 }
 .blue-container img {
-    height: 150px;
-    width: 150px;
+    border: 5px solid rgb(255, 255, 255, 0.5);
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: 2rem;
 }
-.blue-container h1 {
+.blue-container div {
+    margin-bottom: 6rem;
+}
+.blue-container div h1, .blue-container div p {
     margin: 0;
+}
+.blue-container div h1 {
+    font-size: 40px;
 }
 .experience-container {
     display: flex;
+    text-align: left;
+    flex-direction: column;
     grid-column: 2/-1;
     grid-row: 1/2;
     background-color: white;
+    border-right: 1px solid rgba(2, 193, 252);
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
 .skills-container {
     display: flex;
+    text-align: left;
+    flex-direction: column;
     grid-column: 2/-1;
     grid-row: 2/3;
     background-color: white;
+    border-right: 1px solid rgba(2, 193, 252);
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
+}
+.experience-container h2, .skills-container h2 {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 0;
+}
+.skills-container h2 {
+    margin-top: 1rem;
+}
+.skills-container h2 span {
+    color: rgba(2, 193, 252);
 }
