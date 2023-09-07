@@ -3,7 +3,7 @@ const HOSTER = "https://sophisticated-humane-dandelion.glitch.me";
 const container = document.querySelector(".container");
 const form = document.querySelector("#form");
 const containertest = document.querySelector(".container-test");
-const producte = document.querySelector(".add-product");
+const produktai = document.querySelector(".add-product");
 
 async function fetchPeople() {
   try {
@@ -102,31 +102,20 @@ function generatePersonCard(person) {
 }
 
 function addProduct() {
-  const productTable = document.createElement("div");
-  productTable.className = "add-product-table";
-  const Pname = document.createElement("h1");
-  Pname.textContent = "Pridėti prekę";
-  const Pimage = document.createElement("Input");
-  Pimage.placeholder = "image";
-  Pimage.type = "text";
-  Pimage.id = "image";
-  const Ptitle = document.createElement("Input");
-  Ptitle.placeholder = "title";
-  Ptitle.type = "text";
-  Ptitle.id = "title";
-  const Pprice = document.createElement("Input");
-  Pprice.placeholder = "price";
-  Pprice.type = "Number";
-  Price.id = "price";
+  const button = document.querySelector("submit");
+  button.textContent = "submit";
+  const image = document.querySelector("#image");
+  image.textContent = product.image;
+  const title = document.querySelector("#title");
+  title.textContent = product.title;
+  const price = document.querySelector("#price");
+  price.textContent = product.price;
 
-  const addproduct = createElement("Button");
-  addproduct.textContent = "Add product";
-
-  addproduct.addEventListener("click", async () => {
+  produktai.addEventListener("submit", async () => {
     try {
-      const image = Pimage.value;
-      const title = Ptitle.value;
-      const price = Pprice.value;
+      const image = image.value;
+      const title = title.value;
+      const price = price.value;
       const response = await fetch(HOSTER, {
         method: "POST",
         headers: {
@@ -140,7 +129,7 @@ function addProduct() {
       });
       if (response.ok) {
         const product = await response.json();
-        generatePersonCard([image, title, price]);
+        generateProductCard([image, title, price]);
       } else {
         alert("It didn't work");
       }
@@ -148,9 +137,6 @@ function addProduct() {
       alert(error);
     }
   });
-
-  producte.append(productTable);
-  productTable.append(Pname, Pimage, Ptitle, Pprice, addproduct);
 }
 addProduct();
 
