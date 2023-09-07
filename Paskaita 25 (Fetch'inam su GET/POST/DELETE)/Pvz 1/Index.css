@@ -4,8 +4,34 @@
     gap: 20px;
 }
 .card {
-    border: 1px solid black;
+    border: 1px solid rgb(88, 88, 88,0.5);
     text-align: center;
-    min-width: 200px;
+    justify-content: center;
+    max-width: 250px;
+    padding: 15px;
+}
+.card img {
+    width: 250px;
+}
+
+.container-test {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.price {
+    color: red;
+}
+.add-product { 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.add-product-table {
+    border: 5px solid rgb(88, 88, 88,0.5);
+    text-align: center;
+    justify-content: center;
+    height: 400px;
+    width: 1000px;
     padding: 15px;
 }
