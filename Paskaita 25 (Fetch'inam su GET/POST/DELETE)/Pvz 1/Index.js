@@ -46,7 +46,7 @@ function generateProductCard(product) {
   pTitle.textContent = product.title;
   const pPrice = document.createElement("p");
   pPrice.classList.add("price");
-  pPrice.textContent = product.price;
+  pPrice.textContent = "$" + product.price;
   const DeleteButton = document.createElement("button");
   DeleteButton.type = "submit";
   DeleteButton.textContent = "DELETE";
@@ -103,33 +103,29 @@ function generatePersonCard(person) {
 
 function addProduct() {
   const button = document.querySelector("submit");
-  button.textContent = "submit";
-  const image = document.querySelector("#image");
-  image.textContent = product.image;
-  const title = document.querySelector("#title");
-  title.textContent = product.title;
-  const price = document.querySelector("#price");
-  price.textContent = product.price;
+  const images = document.querySelector("#image");
+  const titles = document.querySelector("#title");
+  const prices = document.querySelector("#price");
 
-  produktai.addEventListener("submit", async () => {
+  button.addEventListener("click", async () => {
     try {
-      const image = image.value;
-      const title = title.value;
-      const price = price.value;
+      const images = product.image.value;
+      const titles = product.title.value;
+      const prices = product.price.value;
       const response = await fetch(HOSTER, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify({
-          image,
-          title,
-          price,
+          images,
+          titles,
+          prices,
         }),
       });
       if (response.ok) {
         const product = await response.json();
-        generateProductCard([image, title, price]);
+        generateProductCard([product.id, images, titles, prices]);
       } else {
         alert("It didn't work");
       }
