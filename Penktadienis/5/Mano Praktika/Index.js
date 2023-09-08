@@ -17,3 +17,34 @@ button.addEventListener("click", () => {
   let repeateText = p.repeate(); // Pasikartojimas
   repeateText.appendChild(p);
 });
+
+const people = [
+  {
+    name: "Florin",
+    age: 18,
+  },
+  {
+    name: "Laurynas",
+    age: 15,
+  },
+  {
+    name: "Deividas",
+    age: 21,
+  },
+];
+const adult = people.filter((people) => people.age >= 20);
+// console.log(adult);
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const even = numbers.filter(isEven);
+
+function isEven(value) {
+  return value % 2 === 0;
+}
+// console.log(even);
+
+const number = [1, 2, 3, 1, 2, 3, 5, 4, 6, 1, 2, 3];
+const nums = number.filter((value, index, arr) => {
+  return arr.indexOf(value) === index;
+});
+// console.log(nums);
