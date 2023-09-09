@@ -36,21 +36,21 @@
 
 // 3 Užduotis
 
-// function convertToFarenheit(event) {
-//   const celciusInputValue = event.target.value;
-//   const outputElement = document.getElementById("output");
-//   if (celciusInputValue) {
-//     const celcius = Number(celciusInputValue);
-//     const farenheit = (celcius * 1.8 + 32).toFixed(1);
-//     outputElement.innerText = farenheit;
-//   } else {
-//     outputElement.innerText = "";
-//   }
-// }
+function convertToFarenheit(event) {
+  const celciusInputValue = event.target.value;
+  const outputElement = document.getElementById("output");
+  if (celciusInputValue) {
+    const celcius = Number(celciusInputValue);
+    const farenheit = (celcius * 1.8 + 32).toFixed(1);
+    outputElement.innerText = farenheit;
+  } else {
+    outputElement.innerText = "";
+  }
+}
 
-// document
-//   .getElementById("celcius")
-//   .addEventListener("input", convertToFarenheit);
+document
+  .getElementById("celcius")
+  .addEventListener("input", convertToFarenheit);
 
 // 4 Užduotis
 
