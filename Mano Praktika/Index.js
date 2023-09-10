@@ -14,7 +14,7 @@ button.addEventListener("click", () => {
   p.style.color = "red";
   document.body.appendChild(p);
   p.textContent = "Ko žiuri obuoly ??";
-  let repeateText = p.repeate(); // Pasikartojimas
+  let repeateText = p.repeat(); // Pasikartojimas
   repeateText.appendChild(p);
 });
 
@@ -53,24 +53,24 @@ const nums = number.filter((value, index, arr) => {
 
 // Learn the Basics //
 
-// Loops - Kilpos
+// Loops - Kilpos //
 for (let i = 0; i < 100; i++) {
   if (i % 2 === 0) {
     console.log(i + " I Love You");
   }
 }
-// Loops - Kilpos
+// Loops - Kilpos //
 var myArray = ["A", "B", "C"];
 for (var i = 0; i < myArray.length; i++) {
   console.log("The member of myArray in index " + i + " is " + myArray[i]);
 }
-// Loops - Kilpos
+// Loops - Kilpos //
 var i = 99;
 while (i > 0) {
   console.log(i + " bottles of beer on the wall");
   i -= 1;
 }
-// Object - Objektai
+// Object - Objektai //
 
 // personObject yra objektas su vardu/pavarde
 var personObject = {
@@ -89,7 +89,7 @@ for (var member in personObject) {
   }
 }
 
-// Functions - funkcijos
+// Functions - funkcijos //
 function greet(name) {
   return "Hello " + name + "!";
 }
@@ -239,4 +239,74 @@ function upperCaseAsync(s) {
 //   console.log("No string received!");
 // });
 
-// Async and Await - Asinchronizuoti ir laukti
+// Async and Await - Asinchronizuoti ir laukti //
+
+// Funkcija //
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+// Funkcija (sujungimas sumAsync sujung4 su sleep)//
+
+function sumAsync(x, y) {
+  return new Promise((resolve, reject) => {
+    sleep(500).then(() => {
+      resolve(x + y);
+    });
+  });
+}
+// let's use the function now
+sumAsync(5, 7).then((result) => {
+  console.log("The result of the addition is:", result);
+});
+
+// Funkcija naudojant vietoj (.then) į (await) kuri atrogo lengviau parašoma, bet prasmė tapati.
+
+// Funkcija //
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+// Funkcija  su await//
+
+async function sumAsync(x, y) {
+  // this code waits here for 500 milliseconds
+  await sleep(500);
+  // done waiting. let's calculate and return the value
+  return x + y;
+}
+// sumAsync is an async function, which means it returns a Promise.
+sumAsync(5, 7).then((result) => {
+  console.log("The result of the addition is:", result);
+});
+
+// Object Oriented JavaScript - Objektinis JavaScript //
+
+// Funkcija //
+function Person(firstName, lastName) {
+  // construct the object using the arguments
+  this.firstName = firstName;
+  this.lastName = lastName;
+
+  // a method which returns the full name
+  this.fullName = function () {
+    return this.firstName + " " + this.lastName;
+  };
+}
+var myPerson = new Person("John", "Smith");
+console.log(myPerson.fullName()); // outputs "John Smith"
+
+// Viršutinės funkcijos pavyzdys atvaizduotas lengviau ir paverstas kaip - OBJEKTAS //
+var myPerson = {
+  firstName: "John",
+  lastName: "Smith",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  },
+};
+
+// Function Context - Funkcijų kontekstas //
+
+// Inheritance - Paveldėjimas //
+
+// Destructuring Destruktūrizavimas //
+
+// Data Structures - Duomenų struktūros //
