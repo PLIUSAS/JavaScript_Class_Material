@@ -50,27 +50,28 @@ const nums = number.filter((value, index, arr) => {
 // console.log(nums);
 
 // https://www.learn-js.org/en/Welcome - JavaScript:
-// Learn the Basics
-// Advanced tutorials
 
-// Loops
+// Learn the Basics //
+
+// Loops - Kilpos
 for (let i = 0; i < 100; i++) {
   if (i % 2 === 0) {
     console.log(i + " I Love You");
   }
 }
-// Loops
+// Loops - Kilpos
 var myArray = ["A", "B", "C"];
 for (var i = 0; i < myArray.length; i++) {
   console.log("The member of myArray in index " + i + " is " + myArray[i]);
 }
-// Loops
+// Loops - Kilpos
 var i = 99;
 while (i > 0) {
   console.log(i + " bottles of beer on the wall");
   i -= 1;
 }
-// Objektai
+// Object - Objektai
+
 // personObject yra objektas su vardu/pavarde
 var personObject = {
   firstName: "John",
@@ -143,4 +144,99 @@ let multipliedNumbers = numbers.map(multiplyByTwo);
 
 console.log(multipliedNumbers);
 
+// Advanced tutorials //
+
 // Promises - Pažadai
+
+// Funkcija //
+
+function getServerStatus() {
+  const result = fetch("/server/status");
+
+  result.then(function (status) {
+    console.log("The status from the server is: ", status.ok);
+  });
+}
+getServerStatus();
+
+// Funkcija //
+
+function sumAsync(x, y) {
+  const p = new Promise((resolve, reject) => {
+    // this resolves the promise we just created with the output of x+y
+    resolve(x + y);
+  });
+
+  // This returns the promise, not the value
+  return p;
+}
+
+// let's use the function now
+sumAsync(5, 7).then((result) => {
+  console.log("The result of the addition is:", result);
+});
+
+// Funkcija //
+
+function sumAsync(x, y) {
+  console.log("1. sumAsync is executed");
+  const p = new Promise((resolve, reject) => {
+    // run this in 500ms from now
+    setTimeout(() => {
+      console.log(
+        "4. Resolving sumAsync's Promise with the result after 500ms"
+      );
+      resolve(x + y);
+    }, 500);
+
+    // we don't need to return anything
+    console.log("2. sumAsync Promise is initialized");
+  });
+  console.log("3. sumAsync has returned the Promise");
+  return p;
+}
+
+// let's use the function now
+sumAsync(5, 7).then((result) => {
+  console.log("5. The result of the addition is:", result);
+});
+
+// Funkcija //
+
+function sumAsync(x, y) {
+  return new Promise((resolve, reject) => {
+    // run this in 500ms from now
+    setTimeout(() => {
+      if (x < 0 || y < 0) {
+        reject("Negative values received");
+      } else {
+        resolve(x + y);
+      }
+    }, 500);
+
+    // we don't need to return anything
+  });
+}
+sumAsync(-5, 7)
+  .then((result) => {
+    console.log("The result of the addition is:", result);
+  })
+  .catch((error) => {
+    console.log("Error received:", error);
+  });
+
+function upperCaseAsync(s) {
+  return new Promise((resolve, reject) => {
+    if (s === null) {
+      reject();
+    } else {
+      resolve(s.ToUpperCase());
+    }
+  });
+}
+// upperCaseAsync("steve").then(console.log());
+// upperCaseAsync(null).catch((x) => {
+//   console.log("No string received!");
+// });
+
+// Async and Await - Asinchronizuoti ir laukti
