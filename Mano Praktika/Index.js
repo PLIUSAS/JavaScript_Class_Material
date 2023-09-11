@@ -305,8 +305,236 @@ var myPerson = {
 
 // Function Context - Funkcijų kontekstas //
 
-// Inheritance - Paveldėjimas //
+// Metodo susiejimas su objektu
+var person = {
+  name: "John",
+};
 
-// Destructuring Destruktūrizavimas //
+function printName() {
+  console.log(this.name);
+}
+var boundPrintName = printName.bind(person);
+boundPrintName(); // prints out "John"
+printName.call(person); // prints out "John"
+// skambinti/kreiptis vs susieti
+var boundPrintName = printName.call(person); //boundPrintName gets printName's return value (null)
+boundPrintName(); //doesn't work because it's not a function, it's null
+
+printName.bind(person); //returns a new function, but nothing is using it so it's useless
+printName(); //throws error because this.name is not defined
+printName.call(person); //is the same as
+printName.bind(person)(); //executes the function returned by bind
+var boundPrintName = printName.bind(person); //is the same as
+var boundPrintName = function () {
+  printName.call(person);
+};
+// Inheritance - Paveldėjimas //
+// Prototipo atributas
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+
+  function describe() {
+    return this.name + ", " + this.age + " years old.";
+  }
+}
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+Person.prototype.describe = function () {
+  return this.name + ", " + this.age + " years old.";
+};
+// Paveldėjimas
+// Tarkime, kad norime sukurti a Person objektas ir a Student objektas, kilęs iš Person:
+var Person = function () {};
+Person.prototype.initialize = function (name, age) {
+  this.name = name;
+  this.age = age;
+};
+Person.prototype.describe = function () {
+  return this.name + ", " + this.age + " years old.";
+};
+var Student = function () {};
+Student.prototype = new Person();
+
+Student.prototype.learn = function (subject) {
+  console.log(this.name + " just learned " + subject);
+};
+var me = new Student();
+me.initialize("John", 25);
+me.learn("Inheritance");
+// Kaip matome šiame pavyzdyje, initialize metodas priklauso Person ir learn metodas priklauso Student, abu dabar yra dalis me objektas.
+// Atminkite, kad „JavaScript“ yra daug būdų, kaip paveldėti, ir tai tik vienas iš jų.
+
+// Pratimas //
+// Sukurkite objektą, vadinamą Teacher kilęs iš Person klasę ir įgyvendinkite metodą, vadinamą teach kuri gauna eilutę, vadinamą subject, ir išspausdina:
+// [teacher's name] is now teaching [subject]
+
+var Person = function () {};
+Person.prototype.initialize = function (name, age) {
+  this.name = name;
+  this.age = age;
+};
+// TODO: create the class Teacher and a method teach
+var Teacher = function () {
+  this.teach = function (subject) {
+    console.log(this.name + " is now teaching " + subject);
+  };
+};
+Teacher.prototype = new Person();
+var him = new Teacher();
+him.initialize("Adam", 45);
+him.teach("Inheritance");
+
+// Destructuring - Destruktūrizavimas //
+
+// Consider this object
+const person = {
+  head: {
+    eyes: "x",
+    mouth: {
+      teeth: "x",
+      tongue: "x",
+    },
+  },
+  body: {
+    shoulders: "x",
+    chest: "x",
+    arms: "x",
+    hands: "x",
+    legs: "x",
+  },
+};
+
+// If we want to get head, the old way:
+// let head = person.head;
+
+// ES6 Destructuring
+// let { head } = person;
+
+// We can give other name as if a variable was declared, in the same line
+// let { head: myHead } = person;
+
+// So we can do...
+console.log(myHead); // prints '{ eyes, mouth: { ... } }'
+
+// Su masyvais: //
+
+// let numbers = ["2", "3", "7"];
+
+// Old way
+let two = numbers[0];
+let three = numbers[1];
+
+// ES6 Destructuring
+// let [two, three] = numbers;
+
+// We can give them other names too
+// let [two: positionZero, three: positionOne] = numbers;
+
+console.log(positionZero); // prints '2'
+console.log(positionOne); // prints '3'
+
+// Tai galime padaryti ir su funkcijų parametrais: //
+
+// Old way
+function getHeadAndBody(person) {
+  let headAndBody = {
+    head: person.head,
+    body: person.body,
+  };
+
+  return headAndBody;
+}
+// ES6 Destructuring
+function getHeadAndBody({ head, body }) {
+  return { head, body };
+}
+// With arrow functions
+let getHeadAndBody = ({ head, body }) => {
+  head, body;
+};
+
+// Pratimas //
+// Gauti legs nuosavybę ir gaukite duomenis trečioje pozicijoje numbers naudojant destruktūrizavimą. Duok jai vardus myLegs ir thirdPosition atitinkamai.
+
+const person = {
+  head: {
+    eyes: "x",
+    mouth: {
+      teeth: "x",
+      tongue: "x",
+    },
+  },
+  body: {
+    shoulders: "x",
+    chest: "x",
+    arms: "x",
+    hands: "x",
+    legs: "x",
+  },
+};
+// const numbers = ["2", "3", "4"];
+// TODO: Destructure here.
+let {
+  body: { legs: myLegs },
+} = person;
+let [onePosition, secondPosition, thirdPosition] = numbers;
+// or...
+// const { legs: myLegs } = person.body;
+// const [,,thirdPosition] = numbers;
+console.log(myLegs);
+console.log(thirdPosition);
 
 // Data Structures - Duomenų struktūros //
+
+// https://github.com/ronreiter/interactive-tutorials
+
+// Failo pavadinimas.md //
+// Tutorial
+// --------
+// Here you may write text that explains a certain feature.
+
+// Exercise
+// --------
+// Here you will need to write the purpose of the exercise. Finishing the exercise correctly
+// must be accomplished using the new feature that you are explaining.
+
+// Tutorial Code
+// -------------
+// Write a code block that will appear on the interpreter window. For example, you may
+// write an empty function, which the user must complete in order to finish the exercise.
+
+// Expected Output
+// ---------------
+// Write a code block that will describe the exact output expected from the modified code,
+// if it has been modified correctly.
+
+// Solution
+// --------
+// Write the solution code to the problem.
+
+// LIETUVISKAI //
+// Tutorial - Pamoka
+// ---------
+// Čia galite parašyti tekstą, paaiškinantį tam tikrą funkciją.
+
+// Exercise - Pratimas
+// ---------
+// Čia reikės parašyti pratimo tikslą. Teisingai baigti pratimą
+// turi būti atlikta naudojant naują funkciją, kurią paaiškinate.
+
+// Tutorial Code - Pamokos kodas
+// --------------
+// Parašykite kodo bloką, kuris pasirodys interpretatoriaus lange. Pavyzdžiui, galite
+// parašykite tuščią funkciją, kurią vartotojas turi atlikti, kad užbaigtų pratimą.
+
+// Expected Output - Tikėtina išvestis
+// ----------------
+// Parašykite kodo bloką, kuris apibūdins tikslią išvestį, kurios tikimasi iš modifikuoto kodo,
+// jei jis buvo teisingai pakeistas.
+
+// Solution - Sprendimas
+// ---------
+// Parašykite problemos sprendimo kodą.
